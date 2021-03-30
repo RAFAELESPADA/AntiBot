@@ -1,6 +1,6 @@
-package Outfit.PvP.Eventos;
+package me.Rafael.AntiBot;
 
-import Outfit.PvP.Main.Main;
+import me.Rafael.PvP.Main.Main;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
