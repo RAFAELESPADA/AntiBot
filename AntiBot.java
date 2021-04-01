@@ -1,6 +1,6 @@
-package me.Rafael.AntiBot;
+package me.rafaelauler.eventos;
 
-import me.Rafael.PvP.Main.Main;
+import Rafael.PvP.Main.Main;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
@@ -45,7 +45,7 @@ public class AntiBot
       return;
     }
     if (ipban != null) {
-      event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§4§lANTIBOT§r\n§cProxy Banida!\n§7Esse IP foi permanentemente banido do servidor!\n\n§fDiscord: §ddiscord.gg/FuxCUsufhk");
+      event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§4§lBLACKLIST§r\n§cIP Banido!\n§7Esse IP foi permanentemente banido do servidor!\n\n§fDiscord: §ddiscord.gg/FuxCUsufhk");
     }
     if ((!NoBot.contains(ip)) && (ipban == null))
     {
@@ -65,18 +65,23 @@ public class AntiBot
         }, 6000L);
         return;
       }
-      if (Scanner.findWithinHorizon("Google LLC", 0) != null)
+      if ((Scanner.findWithinHorizon("yes", 0) != null) || 
+        (Scanner.findWithinHorizon("VPN", 0) != null) || 
+        (Scanner.findWithinHorizon("Google LLC", 0) != null) || 
+        (Scanner.findWithinHorizon("North America", 0) != null) || 
+        (Scanner.findWithinHorizon("United States", 0) != null) || 
+        (Scanner.findWithinHorizon("Indonesia", 0) != null) || 
+        (Scanner.findWithinHorizon("Germany", 0) != null) || 
+        (Scanner.findWithinHorizon("Singapore", 0) != null) || 
+        (Scanner.findWithinHorizon("France", 0) != null) || 
+        (Scanner.findWithinHorizon("India", 0) != null) || 
+        (Scanner.findWithinHorizon("Russia", 0) != null) || 
+        (Scanner.findWithinHorizon("Colombia", 0) != null) || 
+        (Scanner.findWithinHorizon("Bangladesh", 0) != null) || 
+        (Scanner.findWithinHorizon("Thailand", 0) != null))
       {
         event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§4§lANTIBOT§r\n§cProxy Detectada!\n§7Desative para se conectar ao servidor!\n\n§fDiscord: §ddiscord.gg/FuxCUsufhk");
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "ipban -s " + ip + " [AutoBan] Uso de VPN/Proxy!");
-        BotAttack += 1;
-        Scanner.close();
-        return;
-      }
-      if (Scanner.findWithinHorizon("yes", 0) != null)
-      {
-        event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§4§lANTIBOT§r\n§cProxy Detectada!\n§7Desative para se conectar ao servidor!\n\n§fDiscord: §ddiscord.gg/FuxCUsufhk");
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "ipban -s " + ip + " [AutoBan] Uso de VPN/Proxy!");
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "ipban -s " + ip + " [AntiBot] Uso de VPN/Proxy!");
         BotAttack += 1;
         Scanner.close();
         return;
@@ -119,7 +124,7 @@ public class AntiBot
         }, 50L);
         return;
       }
-      event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§d§lCHECKING§r\n§cO sistema de verificaçao esta offline no momento!\n§7Tente entrar mais tarde no servidor!\n\n§fDiscord: §ddiscord.gg/FuxCUsufhk");
+      event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_OTHER, "§d§lCHECKING§r\n§cO sistema de verificação esta offline no momento!\n§7Tente entrar mais tarde no servidor!\n\n§fDiscord: §ddiscord.gg/FuxCUsufhk");
     }
   }
   
